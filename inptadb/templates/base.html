@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="{% static 'inptadb/inpta.css' %}">
+    <title>InPTA data archive</title>
+  </head>
+  <body>
+    <div id="banner">
+      <div id="banner-content"> 
+        <table border="0" width='90%'>
+        <tbody>
+            <tr>
+              <td><a href="{% url 'index' %}">
+                  <img src="{% static 'inptadb/InPTA-logo.png' %}" alt="InPTA Logo" style="height:50px;width:auto"> 
+              </a></td>
+              <td style="text-align:right; vertical-align:bottom;">
+	            {% if user.is_authenticated %}
+	              Logged in as {{ user.username }}. 
+	              <a href="{% url 'logout' %}">Log out</a>
+	            {% else %}
+	              <a href="{% url 'login' %}">Log in</a>
+	            {%endif%}  
+              </td>
+            </tr>
+        </tbody>
+        </table>
+      </div>
+    </div>
+    <br/>
+    <div id="main-content">
+    {% block loginform %} {% endblock %}
+    
+    {% if user.is_authenticated %}
+      {% block content %}  {% endblock %}
+    {% endif %}
+    </div>
+  </body>
+</html>

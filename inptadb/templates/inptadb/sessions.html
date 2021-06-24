@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Observing Sessions for {{ proposal }}</h1>
+  <br/>
+  <ul style="list-style-type:circle">
+    {% for session in proposal.session_set.all %}
+    <li>{{ session }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

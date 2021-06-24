@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Telescope, Backend, Proposal, Source, DataFormat, Astronomer
+from .models import Telescope, Backend, Proposal, Source, DataFormat, Astronomer, Project
 
 # Register your models here.
 
@@ -10,3 +10,4 @@ admin.site.register(Proposal)
 admin.site.register(Source)
 admin.site.register(DataFormat)
 admin.site.register(Astronomer)
+admin.site.register(Project)

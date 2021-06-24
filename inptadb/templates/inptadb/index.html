@@ -1,42 +1,8 @@
-{% load static %}
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>InPTA</title>
-    <style type="text/css" media="screen">
-     * {
-       margin: 0; 
-       padding: 0;
-     }
+{% extends "base.html" %}
 
-     div#banner { 
-       position: absolute; 
-       top: 0; 
-       left: 0; 
-       background-color: #DDEEEE; 
-       width: 100%; 
-     }
-     div#banner-content { 
-       width: 100%; 
-       margin: 0 auto; 
-       padding: 10px; 
-       border: 1px solid #000;
-     }
-     div#main-content { 
-       padding-top: 70px;
-     }
-    </style>
-</head>
-
-<body>
-  <div id="banner">
-    <div id="banner-content">
-    	<img src="{% static 'inptadb/InPTA-logo.png' %}" alt="InPTA Logo" style="height:50px;width:auto" />
-    </div>
-  </div>
-  <div id="main-content">
-    <br/>
-    <p>Hello...</p>
-  </div>
-</body>
-</html>
+{% block content %}
+  <br>
+  <h1>Welcome to InPTA project archive.</h1>
+  <p>Click <a href="{% url 'project' 1 %}">here</a> to view InPTA observations.</p>
+  <p>Click <a href="{% url 'projects' %}">here</a> to view all projects in this archive.</p>
+{% endblock %}
